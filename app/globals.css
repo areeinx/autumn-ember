@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+ inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Gloria Hallelujah', 'Jersey 20', 'Ubuntu', Arial, Helvetica, sans-serif !important;
+}
+
+/* Hide Next.js dev overlay icon */
+[data-nextjs-dev-overlay] {
+  display: none !important;
+}
+.flame-halo.flicker-slow {
+  animation: haloFlicker 1.2s infinite;
+}
+.flame-halo.flicker-fast {
+  animation: haloFlicker 0.5s infinite;
+}
+@keyframes haloFlicker {
+  0%, 100% { opacity: 0.9; }
+  20% { opacity: 0.7; }
+  40% { opacity: 1; }
+  60% { opacity: 0.8; }
+  80% { opacity: 0.95; }
+}
+@keyframes flamePulse {
+  0%, 100% { filter: brightness(1) opacity(1); }
+  20% { filter: brightness(1.2) opacity(0.85); }
+  50% { filter: brightness(1.3) opacity(0.7); }
+  80% { filter: brightness(1.1) opacity(0.9); }
+}
+.sparks-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  height: 340px;
+  pointer-events: none;
+  z-index: 3;
+}
+.spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd700 60%, #ffae00 100%);
+  opacity: 0.7;
+  animation: sparkRise 2.2s infinite;
+}
+.spark-fast {
+  animation-duration: 1s !important;
+}
+.spark-0 { left: 60px; top: 180px; animation-delay: 0s; }
+.spark-1 { left: 120px; top: 220px; animation-delay: 0.3s; }
+.spark-2 { left: 200px; top: 210px; animation-delay: 0.7s; }
+.spark-3 { left: 250px; top: 170px; animation-delay: 1.1s; }
+.spark-4 { left: 170px; top: 120px; animation-delay: 1.5s; }
+.spark-5 { left: 90px; top: 130px; animation-delay: 1.8s; }
+.spark-6 { left: 220px; top: 80px; animation-delay: 2.1s; }
+@keyframes sparkRise {
+  0% { opacity: 0.7; transform: scale(1) translateY(0); }
+  40% { opacity: 1; transform: scale(1.2) translateY(-20px); }
+  80% { opacity: 0.5; transform: scale(0.8) translateY(-40px); }
+  100% { opacity: 0; transform: scale(0.5) translateY(-60px); }
+}
