@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import { Gloria_Hallelujah, Ubuntu } from "next/font/google";
 import "./globals.css";
 import ClientProvider from "./client-provider"; // <-- import your client provider
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({ subsets: ["latin"] });
+const gloria = Gloria_Hallelujah({ weight: "400", subsets: ["latin"] });
+const ubuntu = Ubuntu({
+  weight: ["300", "400", "500", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
@@ -37,9 +36,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.className} ${gloria.className} ${ubuntu.className}`}>
         <ClientProvider>{children}</ClientProvider>
       </body>
     </html>

@@ -307,7 +307,7 @@ export default function FirePage() {
                         </div>
                       </div>
                       <div className="mb-6">
-                        <p>Or join a friend's campfire:</p>
+                        <p>Or join a friend&apos;s campfire:</p>
                         <form
                           onSubmit={async (e) => {
                             e.preventDefault();
